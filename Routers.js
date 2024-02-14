@@ -11,7 +11,7 @@ router.get('/showRes',controller.get2)
 
 router.post('/updateWell/:a/:b',controller.post1)
 
-router.post('/updateWeRes/:a/:b',controller.post2)
+router.post('/updateRes/:a/:b',controller.post2)
 
 
 module.exports=router

@@ -32,13 +32,7 @@ module.exports = {
 
     post1: async (req, res) => {
         try {
-            // const a = await message.message1(); 
-            // if (a == null) {
-            //     res.send("Empty");
-            // } else {
-            //     res.send(a);
-            // }
-
+          
             await message.message3(req.params.a,req.params.b)
                 res.send("done")
 
@@ -49,14 +43,9 @@ module.exports = {
     },
 
     post2: async (req, res) => {
+        console.log('resPost2 called');
         try {
-            // const a = await message.message1(); 
-            // if (a == null) {
-            //     res.send("Empty");
-            // } else {
-            //     res.send(a);
-            // }
-
+        
             await message.message4(req.params.a,req.params.b)
                 res.send("done")
 

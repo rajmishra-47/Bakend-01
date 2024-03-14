@@ -2,8 +2,8 @@ const client = require('./connectionDB');
 
 const message1 = () => {
     return new Promise((resolve, reject) => {
-        client.connect();
-        client.query(`SELECT * FROM wellsinfo`, (err, data) => {
+        // client.connect();
+        client.query(`select * from Wells order by Wname`, (err, data) => {
             if (err) {
                 reject(err); 
             } else {
@@ -16,8 +16,8 @@ const message1 = () => {
 
 const message2 = () => {
     return new Promise((resolve, reject) => {
-        client.connect();
-        client.query(`SELECT * FROM ReservoirInfo`, (err, data) => {
+        // client.connect();
+        client.query(`select * from Res order by ResName`, (err, data) => {
             if (err) {
                 reject(err); 
             } else {
@@ -32,8 +32,8 @@ const message2 = () => {
 const message3=(a,b)=>{
 
     return new Promise((resolve, reject) => {
-        client.connect();
-        client.query(`update wellsinfo set wellsdata= $1 where wellsdata=$2`,[a,b],(err, data) => {
+        // client.connect();
+        client.query('update Wells set wval=$1 where wname=$2',[a,b],(err, data) => {
             if (err) {
                 reject(err); 
             } else {
@@ -48,8 +48,9 @@ const message3=(a,b)=>{
 const message4=(a,b)=>{
 
     return new Promise((resolve, reject) => {
-        client.connect();
-        client.query(`update ReservoirInfo set resdata= $1 where resdata=$2`,[a,b],(err, data) => {
+        // client.connect();
+        console.log(a,b)
+        client.query(`update Res set resval=$1 where resname=$2`,[a,b],(err, data) => {
             if (err) {
                 reject(err); 
             } else {

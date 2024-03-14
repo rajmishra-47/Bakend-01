@@ -1,6 +1,6 @@
 const client = require('./connectionDB');
 
-const message1 = () => {
+const WellData = () => {
     return new Promise((resolve, reject) => {
         // client.connect();
         client.query(`select * from Wells order by Wname`, (err, data) => {
@@ -14,7 +14,7 @@ const message1 = () => {
 };
 
 
-const message2 = () => {
+const ResData = () => {
     return new Promise((resolve, reject) => {
         // client.connect();
         client.query(`select * from Res order by ResName`, (err, data) => {
@@ -29,7 +29,7 @@ const message2 = () => {
 
 
 
-const message3=(a,b)=>{
+const UpdateWellData=(a,b)=>{
 
     return new Promise((resolve, reject) => {
         // client.connect();
@@ -45,7 +45,7 @@ const message3=(a,b)=>{
 
 
 
-const message4=(a,b)=>{
+const UpdateResData=(a,b)=>{
 
     return new Promise((resolve, reject) => {
         // client.connect();
@@ -53,8 +53,10 @@ const message4=(a,b)=>{
         client.query(`update Res set resval=$1 where resname=$2`,[a,b],(err, data) => {
             if (err) {
                 reject(err); 
+                console.log('message err');
             } else {
                 resolve(data); 
+                console.log('message sucess');
             }
         });
     });
@@ -63,4 +65,4 @@ const message4=(a,b)=>{
 
 
 
-module.exports={ message1, message2 , message3 , message4}
+module.exports={ WellData, ResData , UpdateWellData , UpdateResData}

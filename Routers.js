@@ -5,13 +5,13 @@ const router=express.Router()
 const controller=require('./controller')
 
 
-router.get('/showWell',controller.get1)
+router.get('/showWell',controller.getWellData)
 
-router.get('/showRes',controller.get2)
+router.get('/showRes',controller.getResData)
 
-router.post('/postWell/:a/:b',controller.post1)
+router.put('/postWell/:a/:b',controller.putWellData)
 
-router.post('/postRes/:a/:b',controller.post2)
+router.put('/postRes/:a/:b',controller.putResData)
 
 
 module.exports=router

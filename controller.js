@@ -1,13 +1,13 @@
 const message=require('./message')
 
 module.exports = {
-    get1: async (req, res) => {
+    getWellData: async (req, res) => {
         try {
-            const a = await message.message1(); 
-            if (a == null) {
+            const wellData= await message.WellData(); 
+            if (wellData == null) {
                 res.send("Empty");
             } else {
-                res.send(a);
+                res.send(wellData);
             }
         } catch (error) {
             console.error(error);
@@ -15,13 +15,13 @@ module.exports = {
         }
     },
 
-    get2: async (req, res) => {
+    getResData: async (req, res) => {
         try {
-            const a = await message.message2(); 
-            if (a == null) {
+            const resData = await message.ResData(); 
+            if (resData == null) {
                 res.send("Empty");
             } else {
-                res.send(a);
+                res.send(resData);
             }
         } catch (error) {
             console.error(error);
@@ -30,10 +30,10 @@ module.exports = {
     },
 
 
-    post1: async (req, res) => {
+    putWellData: async (req, res) => {
         try {
           
-            await message.message3(req.params.a,req.params.b)
+            await message.UpdateWellData(req.params.a,req.params.b)
                 res.send("done")
 
         } catch (error) {
@@ -42,11 +42,11 @@ module.exports = {
         }
     },
 
-    post2: async (req, res) => {
-        console.log('resPost2 called');
+    putResData: async (req, res) => {
+        
         try {
         
-            await message.message4(req.params.a,req.params.b)
+            await message.UpdateResData(req.params.a,req.params.b)
                 res.send("done")
 
         } catch (error) {

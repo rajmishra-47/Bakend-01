@@ -6,8 +6,12 @@ const cors = require('cors')
  
 app.use(cors())
 
+client.connect();
+
 const useRoute=require('./Routers')
 
 app.use('',useRoute)
-client.connect();
+
+
+
 app.listen(process.env.PORT1 || 3000,()=> console.log(`listening @ ${process.env.PORT1 || 3000}`))

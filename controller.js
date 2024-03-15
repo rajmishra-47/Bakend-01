@@ -1,4 +1,4 @@
-const message=require('./message')
+const message=require('./Services')
 
 module.exports = {
     getWellData: async (req, res) => {
